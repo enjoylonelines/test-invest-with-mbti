@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+  
+  
+  <div>지금까지의 사용자 수:
+    <span id="number-of-participants"></span>
+  </div>
+
+
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdfmSH87sn639a8IIGNFElKQ1ol61FR9I",
+      authDomain: "project-flip-the-card.firebaseapp.com",
+      databaseURL: "https://project-flip-the-card-default-rtdb.firebaseio.com",
+      projectId: "project-flip-the-card",
+      storageBucket: "project-flip-the-card.appspot.com",
+      messagingSenderId: "849022846127",
+      appId: "1:849022846127:web:52f9cb5ac1fa06cd9f805a",
+      measurementId: "G-EWCWXDQ8G9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script>
+    const db = firebase.firestore();
+    db.collection('Number-of').get().then((result)=>{
+      result.forEach((doc) => {
+        // db정보를 클라이언트 창에 업로드
+        const ParticipantsSpanEl = document.getElementById('number-of-participants');
+        const numberOfParticipants = doc.data().Num + 1;
+        ParticipantsSpanEl.innerText = numberOfParticipants;
+        // 클라이언트 정보를 db에 업로드
+        db.collection('Number-of').doc('participants').set({Num : numberOfParticipants});
+      });
+    })
+  </script>
+</body>
+
+</html>
