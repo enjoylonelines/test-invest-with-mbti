@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,11 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/main.css">
 </head>
+
 <body>
     <main class="main">
         <section class="progress_all">
-            <a href="#">BACK</a>
+            <a href="#" id="back-button">BACK</a>
             <div class="progress">
                 <div id="progress_bar" data-width="10"></div>
                 <p>
@@ -39,8 +41,113 @@
         </form>
     </main>
     <script>
+        const backButton = document.getElementById('back-button');
         const progressBar = document.getElementById('progress_bar');
+        const qCount = document.querySelectorAll('.q-count');
         progressBar.style.width = progressBar.dataset.width + `%`;
+        let pageCount = 1;
+
+        const questionList = document.getElementById('question_list');
+        const answerList = document.getElementsByName('answer');
+        const labelList = document.getElementsByTagName('label');
+        const questionArray = ['주위 친구들이 모두 코인을 시작했다. 나도 시작해볼까?', '갑자기 먹고 싶은 음식이 생겼다.', '유망하다는 코인이 상장되었다. 이럴 때 나는?', '내가 산 코인이 오르고 있다. 이럴 때 나는',
+            '나는 낯선 사람과 인사하는 자리에서', '내가 팀원을 직접 짤 수 있다면?', '친구가 내가 산 주식 회사를 욕한다.', '택시에서 기사 아저씨가 계속 말을 걸 때 나는', '2박 3일 여행 떠나기 전날 나는',
+            '친구가 산 땅의 가격이 세배가 되었다.', '음식점에서 점원에게 신메뉴를 추천받았을 때 나는', '어느날 복권에 당첨되어 10억을 얻었다. 그렇다면 나는']
+        const answerArray = [['\'기초 지식부터 쌓아야지!\'<br>여기저기서 정보를 찾아본다.', 's', '\'시작이 반이지!\'<br>일단 이더리움부터 매수한다.', 'n'], ['집에서 혼자 배달시켜 먹는다.', 'i', '같이 먹을 친구를 찾아본다.', 'e'],
+        ['\‘트렌드에 따라야지!\’ 당장 매입', 's', '\‘안정성이 최고야!\' 이미 검증된 코인에 투자', 'n'], ['\'역시 내 판단이 맞았어!\'<br>오른 가격에 더 구매한다.', 't', '당장 팔아서 이익을 실현한다.', 'f'],
+        ['TMI 남발하다 맞팔까지 완', 'e', '어떤 얘기할지 머리가 복잡해진다', 'i'], ['무조건 실력 뛰어난 팀원으로', 's', '나와 친하거나 시너지낼 수 있는 팀원으로', 'n'], ['감히 내 회사를! 친구와 싸운다.', 't', '공감하며 같이 욕한다.', 'f'],
+        ['같이 신나게 얘기를 하며<br>목적지까지 대화를 이어간다.', 'e', '간단히 대답 후 슬며시 이어폰을 낀다.', 'i'], ['예약 일정을 한번 더 체크하고 잔다.', 's', '어떤 낭만이 있을까?<br>상상력을 풀가동하다가 못 잔다.', 'n'],
+        ['배는 아프지만 친구의 실력을 인정한다.', 't', '친구의 운이 좋았다고 생각한다', 'f'], ['신메뉴보다는 익숙한 메뉴를 주문한다.', 's', '솔깃해서 신메뉴를 주문한다.', 'n'], ['이건 내 돈! 전부 예금에 넣어둔다.', 'j', '어차 꽁으로 얻은 돈, 전부 잃어도 상관없다. 코인에 몰빵!!', 'p']];
+        const loadingPage = 'loading.html';
+        let mbtiResult = new Map();
+
+        // 로컬 저장소 비우기
+        localStorage.clear();
+
+        // 로컬 저장소에 저장하기
+        function saveAnswers(currentId) {
+            const resultString = JSON.stringify(currentId);
+            localStorage.setItem(`${pageCount - 1}`, resultString);
+        }
+
+        // 로컬 저장소에서 가져오기
+        function loadAnswers() {
+            const answers = localStorage.getItem(`${pageCount - 1}`);
+            let checkedId = '';
+            if (answers !== null) {
+                checkedId = JSON.parse(answers);
+            }
+            return checkedId;
+        }
+
+        // 선택지 골랐을 때
+        answerList.forEach((radio) => {
+            radio.addEventListener("click", (e) => {
+                const current = e.currentTarget;
+                if (current.checked) {
+                    console.log(`선택 결과: ${current.value}`);
+                    mbtiResult.set(`${qCount[0].textContent}`, current.value);
+                    console.log(mbtiResult);
+                    showNextQuestion();
+                    saveAnswers(current.id);
+                }
+            });
+        });
+
+        // 뒤로가기 버튼 눌렀을 때 이전 질문, 문항, 프로그레스바 업데이트
+        backButton.addEventListener('click', function () {
+            if (pageCount == 1) {
+                return;
+            }
+            checkedRadio();
+
+            pageCount -= 1;
+            qCount[0].textContent = pageCount;
+            qCount[1].textContent = `${pageCount.toString().padStart(2, '0')}.`
+            console.log(qCount[0].textContent);
+            progressBar.style.width = progressBar.dataset.width * pageCount * 0.833 + `%`;
+
+            questionList.textContent = questionArray[pageCount - 1];
+            labelList[0].innerHTML = answerArray[pageCount - 1][0];
+            answerList[0].value = answerArray[pageCount - 1][1];
+            labelList[1].innerHTML = answerArray[pageCount - 1][2];
+            answerList[1].value = answerArray[pageCount - 1][3];
+        })
+
+        // 다음 질문, 문항, 프로그레스바 업데이트
+        function showNextQuestion() {
+            if (pageCount == 12) {
+                location.href = loadingPage;
+                return;
+            }
+            questionList.textContent = questionArray[pageCount];
+            labelList[0].innerHTML = answerArray[pageCount][0];
+            answerList[0].value = answerArray[pageCount][1];
+            labelList[1].innerHTML = answerArray[pageCount][2];
+            answerList[1].value = answerArray[pageCount][3];
+
+            pageCount += 1;
+            qCount[0].textContent = pageCount;
+            qCount[1].textContent = `${pageCount.toString().padStart(2, '0')}.`
+            console.log(qCount[0].textContent);
+            progressBar.style.width = (progressBar.dataset.width * pageCount * 0.86) + `%`;
+
+            checkedRadio();
+        }
+
+        // 로컬 저장소에 저장된 데이터를 가져와 체크했었던 라디오 버튼 체크
+        function checkedRadio() {
+            let checkedId = '';
+            checkedId = loadAnswers();
+            console.log(checkedId);
+            answerList.forEach((radio => {
+                radio.checked = false;
+                if (radio.id === checkedId) {
+                    radio.checked = true;
+                }
+            }));
+        }
     </script>
 </body>
+
 </html>
