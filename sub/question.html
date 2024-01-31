@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투자 성향 테스트</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <main class="main">
+        <section class="progress_all">
+            <a href="#">BACK</a>
+            <div class="progress">
+                <div id="progress_bar" data-width="10"></div>
+                <p>
+                    <span id="count_page" class="q-count">1</span>
+                    <span id="end_page">12</span>
+                </p>
+            </div>
+            <span><a href="/index.html"><i class="xi-home-o"></i></a></span>
+        </section>
+        <section class="question">
+            <h3 id="question_count" class="q-count">01.</h3>
+            <h4 id="question_list">주위 친구들이 모두 주식을 시작했다고 한다. <br>나도 시작해 볼까?</h4>
+        </section>
+        <form action="">
+            <ul class="answer_list">
+                <li>
+                    <input type="radio" id="answer01" name="answer" value="s">
+                    <label for="answer01">'기초 지식부터 쌓아야지!'<br>여기저기서 정보를 찾아본다.</label>
+                </li>
+                <li>
+                    <input type="radio" id="answer02" name="answer" value="n">
+                    <label for="answer02">'시작이 반이지!'<br>일단 이더리움부터 매수한다.</label>
+                </li>
+            </ul>
+        </form>
+    </main>
+    <script>
+        const progressBar = document.getElementById('progress_bar');
+        progressBar.style.width = progressBar.dataset.width + `%`;
+    </script>
+</body>
+</html>
