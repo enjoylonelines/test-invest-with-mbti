@@ -32,23 +32,14 @@ const firebaseConfig = {
 };
 // firebase 초기화
 firebase.initializeApp(firebaseConfig);
-const num = 0;
 const db = firebase.firestore();
-const storage = firebase.storage();
-db.collection('mbti-category').doc(`${mbti[num]}`).get().then((result) => {
-    const $mainTitle = document.querySelector('.result_title');
-    const $subTitle = document.querySelector('.sub_title');
-    const $tendency = document.querySelector('.mbti_tendency');
-    const $caution = document.querySelector('.mbti_caution');
+const mbtiNum = 0;
 
-    $mainTitle.innerHTML = result.data().main_title;
-    $subTitle.innerHTML = result.data().sub_title;
-    $tendency.innerHTML = result.data().tendency;
-    $caution.innerHTML = result.data().caution;
-
+function downloadImg(){
+    const storage = firebase.storage();
     // Storage에서 이미지 가져오기
     const storageRef = storage.ref();
-    const imageRef = storageRef.child(`images/${mbti[num]}.png`);
+    const imageRef = storageRef.child(`images/${mbti[mbtiNum]}.png`);
 
     // 이미지 다운로드 URL 가져오기
     imageRef.getDownloadURL().then(function (url) {
@@ -60,6 +51,21 @@ db.collection('mbti-category').doc(`${mbti[num]}`).get().then((result) => {
     }).catch(function (error) {
     console.error('이미지 가져오기 실패: ', error);
     });
-});
+}
+function downloadData(){
+    db.collection('mbti-category').doc(`${mbti[mbtiNum]}`).get().then((result) => {
+        const $mainTitle = document.querySelector('.result_title');
+        const $subTitle = document.querySelector('.sub_title');
+        const $tendency = document.querySelector('.mbti_tendency');
+        const $caution = document.querySelector('.mbti_caution');
+        
+        $mainTitle.innerHTML = result.data().main_title;
+        $subTitle.innerHTML = result.data().sub_title;
+        $tendency.innerHTML = result.data().tendency;
+        $caution.innerHTML = result.data().caution;
+    });    
+}
+downloadData();
+downloadImg();
 
 
