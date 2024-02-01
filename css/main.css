@@ -426,3 +426,8 @@ body.shareShow .shareInfo{
     display: block;
     font-size: 3rem;
 }
+
+/* 2.1 호범 추가 */
+.mbti_caution li, .mbti_tendency li{
+    margin: 20px 0 0 20px;
+}
