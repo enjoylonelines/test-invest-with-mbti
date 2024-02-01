@@ -72,7 +72,8 @@
 
         // 로컬 저장소에서 가져오기
         function loadAnswers() {
-            const answers = localStorage.getItem(`${pageCount - 1}`);
+            const answers = localStorage.getItem(`${pageCount}`);
+            console.log(`loadPage: ${pageCount}`);
             let checkedId = '';
             if (answers !== null) {
                 checkedId = JSON.parse(answers);
@@ -85,7 +86,6 @@
             radio.addEventListener("click", (e) => {
                 const current = e.currentTarget;
                 if (current.checked) {
-                    console.log(`선택 결과: ${current.value}`);
                     mbtiResult.set(`${qCount[0].textContent}`, current.value);
                     console.log(mbtiResult);
                     showNextQuestion();
@@ -99,12 +99,10 @@
             if (pageCount == 1) {
                 return;
             }
-            checkedRadio();
 
             pageCount -= 1;
             qCount[0].textContent = pageCount;
             qCount[1].textContent = `${pageCount.toString().padStart(2, '0')}.`
-            console.log(qCount[0].textContent);
             progressBar.style.width = progressBar.dataset.width * pageCount * 0.833 + `%`;
 
             questionList.textContent = questionArray[pageCount - 1];
@@ -112,6 +110,9 @@
             answerList[0].value = answerArray[pageCount - 1][1];
             labelList[1].innerHTML = answerArray[pageCount - 1][2];
             answerList[1].value = answerArray[pageCount - 1][3];
+
+            checkedRadio();
+            console.log('pageCount' + pageCount);
         })
 
         // 다음 질문, 문항, 프로그레스바 업데이트
@@ -129,10 +130,11 @@
             pageCount += 1;
             qCount[0].textContent = pageCount;
             qCount[1].textContent = `${pageCount.toString().padStart(2, '0')}.`
-            console.log(qCount[0].textContent);
             progressBar.style.width = (progressBar.dataset.width * pageCount * 0.86) + `%`;
+            console.log('pageCount' + pageCount);
 
             checkedRadio();
+            console.log('pageCount' + pageCount);
         }
 
         // 로컬 저장소에 저장된 데이터를 가져와 체크했었던 라디오 버튼 체크
