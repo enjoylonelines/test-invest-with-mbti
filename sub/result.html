@@ -26,31 +26,33 @@
     </head>
 <body>
     <main class="main" id="result">
-        <h2 class="result_title"></h2>
-        <div class="result_img_box">
-            <img id="main_img" alt="">
-        </div>
-        <h3 class="sub_title">
-        
-        </h3>
-        <h4 class="result_tendency">투자성향</h4>
-        <ul class="mbti_tendency">
-
-        </ul>
-        <h4 class="result_caution">주의사항</h4>
-        <ul class="mbti_caution">
+        <section id="main_result">
+            <h2 class="result_title"></h2>
+            <div class="result_img_box">
+                <img id="main_img" alt="">
+            </div>
+            <h3 class="sub_title">
             
-        </ul>
-        <div class="result_same">
+            </h3>
+            <h4 class="result_tendency">투자성향</h4>
+            <ul class="mbti_tendency">
+
+            </ul>
+            <h4 class="result_caution">주의사항</h4>
+            <ul class="mbti_caution">
+                
+            </ul>
+        </section>
+        <section class="result_same">
             <h4>성격테스트를 한 사람 중 나와 같은 유형은?</h4>
             <div class="percent">
                 <span id="percent"></span>
             </div>
-        </div>
+        </section>
         <ul class="resul_other">
             <li class="result_fit">
                 <h4>나와 찰떡궁합은 누구?</h4>
-                <div class="fit">
+                <div class="fit" data-cls="sameShow">
                     <div class="resul_other_img_box">
                         <img src="../img/test_02.jpg" alt="INFP">
                     </div>
@@ -59,7 +61,7 @@
             </li>
             <li class="result_opposition">
                 <h4>물-기름 관계는?</h4>
-                <div class="opposition">
+                <div class="opposition" data-cls="oppositionShow">
                     <div class="resul_other_img_box">
                         <img src="../img/test_03.jpg" alt="ISFJ">
                     </div>
@@ -96,9 +98,49 @@
                 <button class="closeBtn"><span class="xi-close"></span></button>
             </div>
         </div>
+        <div class="sameType">
+            <div>
+                <h2 class="result_title"></h2>
+                <div class="result_img_box">
+                    <img id="main_img" alt="">
+                </div>
+                <h3 class="sub_title">
+            
+                </h3>
+                <h4 class="result_tendency">투자 성향</h4>
+                <ul class="mbti_tendency">
+
+                </ul>
+                <h4 class="result_caution">주의사항</h4>
+                <ul class="mbti_caution">
+                    
+                </ul>
+                <button class="closeBtn"><span class="xi-close"></span></button>
+            </div>
+        </div>
+        <div class="oppositionType">
+            <div>
+                <h2 class="result_title"></h2>
+                <div class="result_img_box">
+                    <img id="main_img" alt="">
+                </div>
+                <h3 class="sub_title">
+            
+                </h3>
+                <h4 class="result_tendency">투자 성향</h4>
+                <ul class="mbti_tendency">
+
+                </ul>
+                <h4 class="result_caution">주의사항</h4>
+                <ul class="mbti_caution">
+                    
+                </ul>
+                <button class="closeBtn"><span class="xi-close"></span></button>
+            </div>
+        </div>
     </main>
     <script>
-        const developBtn = document.querySelectorAll('.btn_list [data-cls]');
+        const developBtn = document.querySelectorAll('#result [data-cls]');
         const closeBtn = document.querySelectorAll('.closeBtn');
 
         developBtn.forEach(function(el, idx){
@@ -115,5 +157,6 @@
 
     </script>
     <script src="result.js"></script>
+    <script src="other.js"></script> 
 </body>
 </html>
