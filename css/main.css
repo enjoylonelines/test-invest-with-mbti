@@ -565,6 +565,19 @@ body.sameShow .sameType{
 .sameType > div::-webkit-scrollbar {
   display: none; 
 }
+.oppositionType .result_title,
+.sameType .result_title{
+    margin: 2.4rem 0 2rem;
+}
+.oppositionType > div,
+.sameType > div{
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+.oppositionType > div::-webkit-scrollbar ,
+.sameType > div::-webkit-scrollbar {
+  display: none; 
+}
 
 /* 2.1 호범 추가 */
 .mbti_caution li, .mbti_tendency li{
