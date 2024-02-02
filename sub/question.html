@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             <a href="#" id="back-button">BACK</a>
             <div class="progress">
                 <div id="progress_bar" data-width="10"></div>
+                <div id="progress_icon"></div>
                 <p>
                     <span id="count_page" class="q-count">1</span>
                     <span id="end_page">12</span>
@@ -42,6 +44,7 @@
     <script>
         const backButton = document.getElementById('back-button');
         const progressBar = document.getElementById('progress_bar');
+        const progressIcon = document.getElementById('progress_icon');
         const qCount = document.querySelectorAll('.q-count');
         progressBar.style.width = progressBar.dataset.width + `%`;
         let pageCount = 1;
@@ -60,6 +63,24 @@
         const loadingPage = 'loading.html';
         let mbtiResult = new Map();
         let checkedId = '';
+
+        // 프로그레스 바 위에 아이콘을 넣기 위해 ::after를 적용하기 위한 style element 생성
+        let progressBarAfterStyle = document.createElement("style");
+
+        progressBarAfterStyle.innerHTML = `#progress_bar::after {
+                content: "";
+                background-image: url('/img/money_icon_1.png');
+                position: absolute;
+                width: 1.8rem;
+                height: 1.8rem;
+                background-size: contain;
+                background-repeat: no-repeat;
+                right: -0.5rem;
+                top: calc(50% - 2.5rem);
+        }`;
+
+        // <head> tag에 넣기
+        document.head.appendChild(progressBarAfterStyle);
 
         // 로컬 저장소 비우기
         localStorage.clear();
@@ -109,6 +130,7 @@
             labelList[1].innerHTML = answerArray[pageCount - 1][2];
             answerList[1].value = answerArray[pageCount - 1][3];
 
+            showProgressIcon();
             checkedRadio();
             console.log('pageCount' + pageCount);
         })
@@ -123,6 +145,7 @@
                 location.href = loadingPage;
                 return;
             }
+
             questionList.textContent = questionArray[pageCount];
             labelList[0].innerHTML = answerArray[pageCount][0];
             answerList[0].value = answerArray[pageCount][1];
@@ -135,6 +158,7 @@
             progressBar.style.width = (progressBar.dataset.width * pageCount * 0.86) + `%`;
             console.log('pageCount' + pageCount);
 
+            showProgressIcon();
             checkedRadio();
             console.log('pageCount' + pageCount);
         }
@@ -149,6 +173,41 @@
                     radio.checked = true;
                 }
             }));
+        }
+
+        // ::after 아이콘 style 변경
+        function showProgressIcon() {
+            if (pageCount === (1 || 2)) {
+                progressBarAfterStyle.innerHTML = progressBarAfterStyle.innerHTML.replace(
+                    /background-image: .*[0-9].*/,
+                    "background-image: url('/img/money_icon_1.png');"
+                );
+            } else if (pageCount === (3 || 4)) {
+                progressBarAfterStyle.innerHTML = progressBarAfterStyle.innerHTML.replace(
+                    /background-image: .*[0-9].*/,
+                    "background-image: url('/img/money_icon_2.png');"
+                );
+            } else if (pageCount === (5 || 6)) {
+                progressBarAfterStyle.innerHTML = progressBarAfterStyle.innerHTML.replace(
+                    /background-image: .*[0-9].*/,
+                    "background-image: url('/img/money_icon_3.png');"
+                );
+            } else if (pageCount === (7 || 8)) {
+                progressBarAfterStyle.innerHTML = progressBarAfterStyle.innerHTML.replace(
+                    /background-image: .*[0-9].*/,
+                    "background-image: url('/img/money_icon_4.png');"
+                );
+            } else if (pageCount === (9 || 10)) {
+                progressBarAfterStyle.innerHTML = progressBarAfterStyle.innerHTML.replace(
+                    /background-image: .*[0-9].*/,
+                    "background-image: url('/img/money_icon_6.png');"
+                );
+            } else if (pageCount === (11 || 12)) {
+                progressBarAfterStyle.innerHTML = progressBarAfterStyle.innerHTML.replace(
+                    /background-image: .*[0-9].*/,
+                    "background-image: url('/img/money_icon_5.png');"
+                );
+            }
         }
     </script>
 </body>
