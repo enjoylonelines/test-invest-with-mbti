@@ -309,6 +309,7 @@ html{
     text-align: center;
     margin: 1rem 0;
     border-radius: 10px;
+    cursor: pointer;
 }
 .percent span{
     display: block;
@@ -346,7 +347,9 @@ html{
     color: #000;
 }
 .developInfo,
-.shareInfo{
+.shareInfo,
+.oppositionType,
+.sameType{
     position: fixed;
     top: 0;
     bottom: 0;
@@ -356,7 +359,9 @@ html{
     display: none;
 }
 .developInfo > div,
-.shareInfo > div{
+.shareInfo > div,
+.oppositionType > div,
+.sameType > div{
     position: absolute;
     background-color: #fff;
     width: 430px;
@@ -370,12 +375,25 @@ html{
     height: 200px;
     top: calc(50% - 100px);
 }
+.oppositionType > div,
+.sameType > div{
+    height: 600px;
+    top: calc(50% - 300px);
+    overflow-y: scroll;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
 .popupShow,
-.shareShow{
+.shareShow,
+.oppositionShow,
+.sameShow{
     overflow: hidden;
 }
 body.popupShow .developInfo,
-body.shareShow .shareInfo{
+body.shareShow .shareInfo,
+body.oppositionShow .oppositionType,
+body.sameShow .sameType{
     display: block !important;
 }
 .developInfo > div{ 
@@ -395,13 +413,24 @@ body.shareShow .shareInfo{
     line-height: 1.2;
 }
 .developInfo > div button,
-.shareInfo > div button{
+.shareInfo > div button,
+.oppositionType > div button,
+.sameType > div button{
     position: absolute;
-    right: 2rem;
-    top: 2rem;
     background-color: #fff;
     font-size: 2rem;
 }
+.developInfo > div button,
+.shareInfo > div button{
+    right: 2rem;
+    top: 2rem;
+}
+.oppositionType > div button,
+.sameType > div button{
+    right: 0;
+    top: 0;
+}
+
 .developInfo > div > a{
     display: block;
     width: 80%;
@@ -431,6 +460,19 @@ body.shareShow .shareInfo{
     display: block;
     font-size: 3rem;
 }
+.oppositionType .result_title,
+.sameType .result_title{
+    margin: 2.4rem 0 2rem;
+}
+.oppositionType > div,
+.sameType > div{
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+.oppositionType > div::-webkit-scrollbar ,
+.sameType > div::-webkit-scrollbar {
+  display: none; 
+}
 
 /* 2.1 호범 추가 */
 .mbti_caution li, .mbti_tendency li{
@@ -447,7 +489,9 @@ body.shareShow .shareInfo{
 }
 @media screen and (max-width : 430px){
     .developInfo > div,
-    .shareInfo > div{
+    .shareInfo > div,
+    .oppositionType > div,
+    .sameType > div{
         width: 100%;
         left: 0;
     }  
@@ -461,6 +505,11 @@ body.shareShow .shareInfo{
     }
     .shareInfo > div h3{
         margin: 3rem 0;
+    }
+    .oppositionType > div,
+    .sameType > div{
+        height: 500px;
+        top: calc(50% - 250px);
     }
 }
 @media screen and (max-width : 320px){
