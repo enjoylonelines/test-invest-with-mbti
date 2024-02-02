@@ -1,25 +1,3 @@
-const mbti = [
-    'ENFJ',
-    'ENFP',
-    'ENTJ',
-    'ENTP',
-
-    'ESFJ',
-    'ESFP',
-    'ESTJ',
-    'ESTP',
-
-    'INFJ',
-    'INFP',
-    'INTJ',
-    'INTP',
-
-    'ISFJ',
-    'ISFP',
-    'ISTJ',
-    'ISTP',
-]
-
 const firebaseConfig = {
     apiKey: "AIzaSyBdfmSH87sn639a8IIGNFElKQ1ol61FR9I",
     authDomain: "project-flip-the-card.firebaseapp.com",
@@ -33,13 +11,13 @@ const firebaseConfig = {
 // firebase 초기화
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const mbtiNum = 0;
+const resultMbti = localStorage.getItem('mbti');
 
 function downloadImg(){
     const storage = firebase.storage();
     // Storage에서 이미지 가져오기
     const storageRef = storage.ref();
-    const imageRef = storageRef.child(`images/${mbti[mbtiNum]}.png`);
+    const imageRef = storageRef.child(`images/${resultMbti}.png`);
 
     // 이미지 다운로드 URL 가져오기
     imageRef.getDownloadURL().then(function (url) {
@@ -53,7 +31,7 @@ function downloadImg(){
     });
 }
 function downloadData(){
-    db.collection('mbti-category').doc(`${mbti[mbtiNum]}`).get().then((result) => {
+    db.collection('mbti-category').doc(`${resultMbti}`).get().then((result) => {
         const $mainTitle = document.querySelector('.result_title');
         const $subTitle = document.querySelector('.sub_title');
         const $tendency = document.querySelector('.mbti_tendency');
