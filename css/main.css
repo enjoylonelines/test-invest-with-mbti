@@ -91,48 +91,146 @@ html{
 
 /**question*******************************************************************/
 
-.progress_all{
-    padding-top: 3.5rem;
-    margin: 0 0 3.5rem;
+/* 2.2 수빈 수정 ~~ */
+.progress_top {
+    padding-top: 1.5rem;
+    margin: 0 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.progress_all > span{
+
+.progress_top>span {
     width: 5rem;
     display: block;
     text-align: right;
-    margin-right: 1rem;
-    font-size: 2rem;
-}
-.progress_all > span i{
+    margin-right: 0.3rem;
+    font-size: 1.5rem;
     color: #686868;
 }
-.progress_all > a{
+
+.progress_top>span i {
+    color: #686868;
+    margin: 0 0rem 0.1rem 0.1rem;
+}
+
+.progress_top>a {
     color: #9f9f9f;
     width: 5rem;
     font-size: 0.8rem;
     margin-left: 1rem;
 }
-.progress_all > a::before{
+
+.progress_top>a::before {
     content: "";
     display: inline-block;
     width: 6px;
-    height:6px;
+    height: 6px;
     background-color: transparent;
     border-top: solid 1px #9f9f9f;
     border-left: solid 1px #9f9f9f;
     transform: rotate(-45deg);
     margin: 0 1rem 0.1rem 0;
 }
-.progress{
-    width: 60%;
-    height: 0.4rem;
+
+.homePopUp{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.homePopUp>div {
+    position: absolute;
+    background-color: #fff;
+    width: 430px;
+    height: 200px;
+    top: calc(50% - 100px);
+    left: calc(50% - 215px);
+    padding: 0 1rem;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.homePopUp>div h3 {
+    margin: 3rem 0 2rem;
+    font-size: 1.3rem;
+}
+
+.confirm-buttons{
+    margin: 0rem 3rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.homePopUp>div a{
+    width: 50px;
+    font-size: 1rem;
+    line-height: 1.2;
+    padding: 0.8rem 2rem;
+    box-shadow: 2px 2px 6px #d7d7d7;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+#close{
+    border: 1px solid #036c28;
+    color: #036c28;
+}
+
+#confirm{
+    background-color: #036c28;
+    color: #fff;
+    border: 1px solid #036c28;
+}
+
+#close:hover{
+    border: 1px solid #000;
+    color: #000;
+}
+#confirm:hover{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.progress_all {
+    margin: 3.5rem 0rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progress_all>span {
+    width: 2rem;
+    display: block;
+    text-align: right;
+    margin-right: 1rem;
+    font-size: 1rem;
+    color: #686868;
+}
+.progress_all>span:nth-child(3){
+    text-align: left;
+    margin: 0;
+    margin-left: 1rem;
+}
+
+.progress {
+    width: 100%;
+    height: 0.5rem;
     background-color: #a9c79f;
     border-radius: 5px;
     position: relative;
 }
-#progress_bar{
+
+#progress_bar {
     position: absolute;
     left: 0;
     top: 0;
@@ -142,25 +240,11 @@ html{
     border-radius: 5px;
 }
 
-/* 2.2 수빈 수정 */
-/* #progress_bar::after{
-    content: "";
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    right: 0;
-    top: calc(50% - 0.5rem);
-    border-radius: 50%;
-    background-color: #036c28;
-} */
-
-.progress > p{
-    display: flex;
-    margin-top: 1rem;
-    justify-content: space-between;
-    color: #686868;
-    font-size: 1rem;
+.middle{
+    min-height:400px;
 }
+/* ~~2.2 수빈 수정 */
+
 .question{
     width: 90%;
     margin: 0 auto;
