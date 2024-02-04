@@ -342,22 +342,22 @@ html{
     line-height: 1.2;
     text-align: center;
 }
-.resul_other{
+.result_other{
     display: flex;
 }
-.resul_other > li{
+.result_other > li{
     width: calc(50% - 5px);
     margin-right: 10px;
 }
-.resul_other > li:last-child{
+.result_other > li:last-child{
     margin-right: 0;
 }
-.resul_other_img_box{
+.result_other_img_box{
     width: 90%;
     margin: 1rem auto;
     min-height: 100px;
 }
-.resul_other_img_box > img{
+.result_other_img_box > img{
     display: block;
     width: 100%;
     border-radius: 10px;
