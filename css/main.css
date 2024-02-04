@@ -306,8 +306,9 @@ html{
     animation: opacityAni .6s ease-in-out infinite alternate;
 }
 
-/**result*******************************************************************/
-
+/**load*******************************************************************/
+.fit_result_title,
+.opp_result_title,
 .result_title{
     font-family: 'JalnanGothic';   
     text-align: center; 
@@ -326,6 +327,8 @@ html{
     justify-content: center;
     background-color:#ffd7e0;
 }
+.fit_sub_title,
+.opp_sub_title,
 .sub_title{
     text-align: center;
     margin: 2rem 0;
@@ -333,10 +336,18 @@ html{
     font-weight: 500;
     line-height: 1.4;
 }
+.fit_mbti_tendency,
+.opp_mbti_tendency,
+.fit_mbti_caution,
+.opp_mbti_caution,
 .mbti_tendency,
 .mbti_caution{
     margin: 1.4rem 0;
 }
+.fit_mbti_tendency li,
+.opp_mbti_tendency li,
+.fit_mbti_caution li,
+.opp_mbti_caution li,
 .mbti_tendency li,
 .mbti_caution li{
     line-height: 1.2;
@@ -580,7 +591,12 @@ body.sameShow .sameType{
 }
 
 /* 2.1 호범 추가 */
-.mbti_caution li, .mbti_tendency li{
+.fit_mbti_tendency li,
+.fit_mbti_caution li,
+.opp_mbti_tendency li,
+.opp_mbti_caution li,
+.mbti_caution li, 
+.mbti_tendency li{
     margin: 1.2rem 0 0 1.2rem; 
 }
 /* 2.1 우주 추가*/
