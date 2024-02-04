@@ -67,14 +67,16 @@ html{
     background-color: #036c28;
     color: #fff;
 }
+
+/* 2.4 수빈 수정 */
 #count_box{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     text-align: center;
 }
 .icon_list_box{
     display: flex;
     width: 80%;
-    margin: 3rem auto;
+    margin: 2rem auto;
     padding: 1rem 0.5rem;
     border-radius: 5px;
     text-align: center;
@@ -86,7 +88,7 @@ html{
     display: block;
 }
 .icon_list_box li a span{
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 /**question*******************************************************************/
@@ -304,7 +306,7 @@ html{
     animation: opacityAni .6s ease-in-out infinite alternate;
 }
 
-/**load*******************************************************************/
+/**result*******************************************************************/
 
 .result_title{
     font-family: 'JalnanGothic';   
@@ -502,8 +504,10 @@ body.sameShow .sameType{
 .sameType > div button{
     position: absolute;
     background-color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
+
+/* 2.4 수빈 수정 */
 .developInfo > div button,
 .shareInfo > div button{
     right: 2rem;
@@ -513,6 +517,7 @@ body.sameShow .sameType{
 .sameType > div button{
     right: 0;
     top: 0;
+    margin: 5px 5px 0 0;
 }
 
 .developInfo > div > a{
@@ -534,15 +539,18 @@ body.sameShow .sameType{
     margin: 0 auto;
     justify-content: center;
 }
+
+/* 2.4 수빈 수정 */
 .shareList li{
     width: 25%;
+    margin-top: 10px;
 }
 .shareList li a{
     display: block;
 }
 .shareList li a span{
     display: block;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 .oppositionType .result_title,
 .sameType .result_title{
