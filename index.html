@@ -29,7 +29,7 @@
             <h2>너.. 투자 마렵니? <span class="xi-money"></span></h2>
             <p>너의 투자 성향을 알려줄게!</p>
         </section>
-        <button id="startBtn" type="button">START</button>
+        <button id="startBtn" type="button" onclick="onClickStartBtn()">START</button>
         <div>
             <p id="count_box">지금까지 <span id="count_people">00</span>명이 참여 했어요.</p>
         </div>
@@ -40,5 +40,11 @@
             <li><a href="#"><span class="xi-share-alt"></span></a></li>
         </ul>
     </main>
+    <script>
+        //2.1 호범 추가
+        function onClickStartBtn(){
+            location.href = 'sub/question.html'
+        }
+    </script>
 </body>
 </html>

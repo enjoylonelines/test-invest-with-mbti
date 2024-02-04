@@ -49,6 +49,10 @@
         mbtiResult += T > F ? 'T' : 'F';
         mbtiResult += P > J ? 'P' : 'J';
         console.log(mbtiResult);
+        
+        //2.1 호범 추가
+        localStorage.setItem('mbti',mbtiResult);
+        setTimeout(() => {location.href = 'result.html'}, 2000);
     </script>
 </body>
 
