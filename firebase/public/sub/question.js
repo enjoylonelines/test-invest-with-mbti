@@ -35,7 +35,6 @@ function saveAnswers(currentId) {
 // 로컬 저장소에서 가져오기
 function loadAnswers() {
     const answers = localStorage.getItem(`${pageCount}`);
-    console.log(`loadPage: ${pageCount}`);
     if (answers !== null) {
         checkedId = JSON.parse(answers);
     } else {
@@ -52,13 +51,16 @@ closeButton.addEventListener('click', function () {
     homePopUp.style.display = 'none';
 })
 
+homePopUp.addEventListener('click', function () {
+    homePopUp.style.display = 'none';
+})
+
 // 선택지 골랐을 때
 answerList.forEach((radio) => {
     radio.addEventListener("click", (e) => {
         const current = e.currentTarget;
         if (current.checked) {
             mbtiResult.set(`${qCount[0].textContent}`, current.value);
-            console.log(mbtiResult);
             saveAnswers(current.id);
             showNextQuestion();
         }
@@ -83,7 +85,6 @@ backButton.addEventListener('click', function () {
 
     showProgressIcon();
     checkedRadio();
-    console.log('pageCount' + pageCount);
 })
 
 // 다음 질문, 문항, 프로그레스바 업데이트
@@ -110,13 +111,11 @@ function showNextQuestion() {
 
     showProgressIcon();
     checkedRadio();
-    console.log('pageCount' + pageCount);
 }
 
 // 로컬 저장소에 저장된 데이터를 가져와 체크했었던 라디오 버튼 체크
 function checkedRadio() {
     loadAnswers();
-    console.log(checkedId);
     answerList.forEach((radio => {
         radio.checked = false;
         if (radio.id === checkedId) {
