@@ -7,8 +7,10 @@
 }
 /**cm********************************************************************/
 
+/* 2.6 수빈 수정 */
 html{
     font-size: 16px;
+    overscroll-behavior: contain;
 }
 .main{
     max-width: 430px;
@@ -288,6 +290,9 @@ html{
     box-shadow: 2px 2px 6px #d7d7d7;
     border-radius: 1rem;
     cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    outline: none;
 }
 
 /* 2.5 수빈 추가 */
@@ -335,11 +340,11 @@ html{
     }
 } */
 
-@media (hover: none) and (pointer: coarse){
+@media (hover: none) or (pointer: coarse){
     /* 터치가능한 디바이스(스마트폰, 터치스크린)*/
     .answer_list>li:active label,
     .answer_list>li input:checked+label {
-        background-color: #000;
+        background-color: red;
         color: #fff;
     }
 }

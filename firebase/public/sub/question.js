@@ -110,18 +110,29 @@ function showNextQuestion() {
     answerList[1].value = answerArray[pageCount - 1][3];
 
     showProgressIcon();
-    checkedNextRadio(); // 2.6 호범
+    //checkedNextRadio(); // 2.6 호범
+    checkedRadio();
 }
 
 // 로컬 저장소에 저장된 데이터를 가져와 체크했었던 라디오 버튼 체크
 function checkedRadio() {
     loadAnswers();
-    answerList.forEach((radio => {
-        radio.checked = false;
-        if (radio.id === checkedId) {
-            radio.checked = true;
-        }
-    }));
+    if (checkedId !== '') {
+        answerList.forEach(radio => {
+            radio.checked = false;
+            if (radio.id === checkedId) {
+                radio.checked = true;
+            }
+        });
+    } else {
+        answerList.forEach(radio => {
+            radio.checked = false;
+        });
+        labelList.forEach(label => {
+            label.style.backgroundColor = "white";
+            label.style.color = "black";
+        })
+    }
 }
 
 function checkedNextRadio() { // 2.6 호범
