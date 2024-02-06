@@ -128,10 +128,6 @@ function checkedRadio() {
         answerList.forEach(radio => {
             radio.checked = false;
         });
-        labelList.forEach(label => {
-            label.style.backgroundColor = "white";
-            label.style.color = "black";
-        })
     }
 }
 
