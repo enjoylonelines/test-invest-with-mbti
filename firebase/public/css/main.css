@@ -291,25 +291,6 @@ html{
 }
 
 /* 2.5 수빈 추가 */
-/* 마우스 호버 가능한 경우 */
-@media (hover: hover) {
-
-    .answer_list>li:hover label,
-    .answer_list>li input:checked+label {
-        background-color: #000;
-        color: #fff;
-    }
-}
-/* 호버 불가능한 경우 */
-@media (hover: none) {
-
-    .answer_list>li:active label,
-    .answer_list>li input:checked+label {
-        background-color: #000;
-        color: #fff;
-    }
-}
-
 @media screen and (max-width : 430px) {
     .homePopUp>div {
         width: 92%;
@@ -318,29 +299,40 @@ html{
     }
 }
 
-@media screen and (max-width : 375px) {
-    /* html {
-        font-size: 14px;
+/* 마우스 호버 가능한 경우 */
+/* @media (hover: hover) {
+    .answer_list>li:hover label,
+    .answer_list>li input:checked+label {
+        background-color: #000;
+        color: #fff;
     }
+} */
 
-    body {
-        max-width: 350px;
-        margin: 0 auto;
+/* 호버 불가능한 경우 */
+/* @media (hover: none) {
+    .answer_list>li:active label,
+    .answer_list>li input:checked+label {
+        background-color: #000;
+        color: #fff;
     }
-/* 
-    .developInfo>div h5 {
-        margin: 5rem 0;
-    }
+} */
 
-    .shareInfo>div h3 {
-        margin: 2.5rem 0;
+/* 터치 가능한 기종 */
+body[data-touchable='true'] {
+    .answer_list>li:active label,
+    .answer_list>li input:checked+label {
+        background-color: #000;
+        color: #fff;
     }
+}
 
-    .oppositionType>div,
-    .sameType>div {
-        height: 500px;
-        top: calc(50% - 250px);
-    } */
+/* 터치 불가능한 기종 */
+body:not([data-touchable='true']) {
+    .answer_list>li:hover label,
+    .answer_list>li input:checked+label {
+        background-color: #000;
+        color: #fff;
+    }
 }
 /**load*******************************************************************/
 
@@ -662,7 +654,11 @@ body.sameShow .sameType{
     }
 }
 /* 2.6 수빈 수정 */
-@media screen and (max-width : 430px){
+@media screen and (max-width : 450px){
+    body {
+        width: 92%;
+        margin: 0 auto;
+    }
     .developInfo > div,
     .shareInfo > div,
     .oppositionType > div,
@@ -670,15 +666,11 @@ body.sameShow .sameType{
         width: 92%;
         left: 50%;
         transform: translateX(-50%);
-    }  
+    }
 }
 @media screen and (max-width : 375px){
     html{
         font-size: 14px;
-    }
-    body{
-        max-width: 350px;
-        margin: 0 auto;
     }
     .developInfo > div h5{
         margin: 5rem 0;

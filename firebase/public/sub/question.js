@@ -23,6 +23,12 @@ const loadingPage = 'loading.html';
 let mbtiResult = new Map();
 let checkedId = '';
 
+function checkTouchable() {
+    document.body.dataset.touchable = !!window.ontouchstart;
+}
+
+checkTouchable();
+
 // 로컬 저장소 비우기
 localStorage.clear();
 
