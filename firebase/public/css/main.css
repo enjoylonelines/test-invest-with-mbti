@@ -143,20 +143,23 @@ html{
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
     display: none;
+    z-index: 1;
 }
 
 .homePopUp>div {
     position: absolute;
     background-color: #fff;
-    width: 430px;
-    height: 200px;
-    top: calc(50% - 100px);
-    left: calc(50% - 215px);
+    height: 180px;
+    width: 420px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(50% - 90px);
     padding: 0 1rem;
     box-sizing: border-box;
     text-align: center;
     display: flex;
     flex-direction: column;
+    z-index: 999;
 }
 
 .homePopUp>div h3 {
@@ -165,7 +168,7 @@ html{
 }
 
 .confirm-buttons{
-    margin: 0rem 3rem;
+    margin: 0 auto;
     height: 60px;
     display: flex;
     align-items: center;
@@ -173,10 +176,11 @@ html{
 }
 
 .homePopUp>div a{
-    width: 50px;
+    width: 40%;
     font-size: 1rem;
     line-height: 1.2;
     padding: 0.8rem 2rem;
+    margin: 0 0.5rem;
     box-shadow: 2px 2px 6px #d7d7d7;
     border-radius: 1rem;
     cursor: pointer;
@@ -208,6 +212,7 @@ html{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: -1;
 }
 
 .progress_all>span {
@@ -284,10 +289,58 @@ html{
     border-radius: 1rem;
     cursor: pointer;
 }
-.answer_list > li:hover label,
-.answer_list > li input:checked + label{
-    background-color: #000;
-    color: #fff;
+
+/* 2.5 수빈 추가 */
+/* 마우스 호버 가능한 경우 */
+@media (hover: hover) {
+
+    .answer_list>li:hover label,
+    .answer_list>li input:checked+label {
+        background-color: #000;
+        color: #fff;
+    }
+}
+/* 호버 불가능한 경우 */
+@media (hover: none) {
+
+    .answer_list>li:active label,
+    .answer_list>li input:checked+label {
+        background-color: #000;
+        color: #fff;
+    }
+}
+
+@media screen and (max-width : 430px) {
+    .homePopUp>div {
+        width: 92%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* html {
+        font-size: 14px;
+    }
+
+    body {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+/* 
+    .developInfo>div h5 {
+        margin: 5rem 0;
+    }
+
+    .shareInfo>div h3 {
+        margin: 2.5rem 0;
+    }
+
+    .oppositionType>div,
+    .sameType>div {
+        height: 500px;
+        top: calc(50% - 250px);
+    } */
 }
 /**load*******************************************************************/
 
@@ -469,15 +522,16 @@ html{
     top: calc(50% - 200px);
 }
 .shareInfo > div{
-    height: 200px;
-    top: calc(50% - 100px);
+    height: 180px;
+    top: calc(50% - 90px);
 }
+/* 2.6 수빈 수정 */
 .oppositionType > div,
 .sameType > div{
     height: 600px;
     top: calc(50% - 300px);
     overflow-y: scroll;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem 0;
     box-sizing: border-box;
 }
 
@@ -518,9 +572,8 @@ body.sameShow .sameType{
     font-size: 1.5rem;
 }
 
-/* 2.4 수빈 수정 */
 .developInfo > div button,
-.shareInfo > div button{
+.shareInfo>div button {
     right: 2rem;
     top: 2rem;
 }
@@ -608,24 +661,30 @@ body.sameShow .sameType{
         opacity: 0;
     }
 }
+/* 2.6 수빈 수정 */
 @media screen and (max-width : 430px){
     .developInfo > div,
     .shareInfo > div,
     .oppositionType > div,
     .sameType > div{
-        width: 100%;
-        left: 0;
+        width: 92%;
+        left: 50%;
+        transform: translateX(-50%);
     }  
 }
 @media screen and (max-width : 375px){
     html{
         font-size: 14px;
     }
+    body{
+        max-width: 350px;
+        margin: 0 auto;
+    }
     .developInfo > div h5{
         margin: 5rem 0;
     }
     .shareInfo > div h3{
-        margin: 3rem 0;
+        margin: 2.5rem 0;
     }
     .oppositionType > div,
     .sameType > div{

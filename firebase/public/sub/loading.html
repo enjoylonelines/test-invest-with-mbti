@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,10 +31,8 @@
             }
         }
         loadResult();
-        console.log(mbtiResultArr);
 
         mbtiResultArr = mbtiResultArr.join('');
-        console.log(mbtiResultArr);
         E = mbtiResultArr.match(/E/g)?.length;
         I = mbtiResultArr.match(/I/g)?.length;
         S = mbtiResultArr.match(/S/g)?.length;
@@ -42,17 +41,15 @@
         F = mbtiResultArr.match(/F/g)?.length;
         P = mbtiResultArr.match(/P/g)?.length;
         J = mbtiResultArr.match(/J/g)?.length;
-        console.log(E, I, S, N, T, F, P, J);
 
         mbtiResult += E > I ? 'E' : 'I';
         mbtiResult += S > N ? 'S' : 'N';
         mbtiResult += T > F ? 'T' : 'F';
         mbtiResult += P > J ? 'P' : 'J';
-        console.log(mbtiResult);
-        
+
         //2.1 호범 추가
-        localStorage.setItem('mbti',mbtiResult);
-        setTimeout(() => {location.href = 'result.html'}, 2000);
+        localStorage.setItem('mbti', mbtiResult);
+        setTimeout(() => { location.href = 'result.html' }, 2000);
     </script>
 </body>
 
