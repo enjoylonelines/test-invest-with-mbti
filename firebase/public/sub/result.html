@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>투자 성향 테스트</title>
-        <meta name="keywords" content='투자, mbti, 투자성향, 투자mbti' />
-        <meta name="author" content='oz코딩' />
-        <meta name="descripption" content='재미로 보는 투자 성향 테스트' />
-        <meta property='og:title', content= '투자 성향 테스트'/>
-        <meta property='og:description', content= '재미로 보는 투자 성향 테스트'/>
-        <meta property='og:type', content= 'website'/>
-        <meta property='og:url', content= 'https://project-flip-the-card.web.app'/><!--url넣어주세여-->
-        <meta property='og:image', content= './img/meta_img.jpg'/>
-        <meta name="twitter:title" content='투자 성향 테스트' />
-        <meta name="twitter:description" content='재미로 보는 투자 성향 테스트' />
-        <meta name="twitter:image" content='./img/meta_img.jpg' />
-        <meta name="twitter:card" content='트위터 카드 타입' />
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-        <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="../css/main.css">
-        <!-- 1.31 호범 추가 -->
-        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script> 
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투자 성향 테스트</title>
+    <meta name="keywords" content='투자, mbti, 투자성향, 투자mbti' />
+    <meta name="author" content='oz코딩' />
+    <meta name="descripption" content='재미로 보는 투자 성향 테스트' />
+    <meta property='og:title' , content='투자 성향 테스트' />
+    <meta property='og:description' , content='재미로 보는 투자 성향 테스트' />
+    <meta property='og:type' , content='website' />
+    <meta property='og:url' , content='https://project-flip-the-card.web.app' /><!--url넣어주세여-->
+    <meta property='og:image' , content='./img/meta_img.jpg' />
+    <meta name="twitter:title" content='투자 성향 테스트' />
+    <meta name="twitter:description" content='재미로 보는 투자 성향 테스트' />
+    <meta name="twitter:image" content='./img/meta_img.jpg' />
+    <meta name="twitter:card" content='트위터 카드 타입' />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- 1.31 호범 추가 -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+</head>
+
 <body>
     <main class="main" id="result">
         <section id="main_result">
@@ -32,7 +34,7 @@
                 <img id="main_img" alt="">
             </div>
             <h3 class="sub_title">
-            
+
             </h3>
             <h4 class="result_tendency">투자성향</h4>
             <ul class="mbti_tendency">
@@ -40,7 +42,7 @@
             </ul>
             <h4 class="result_caution">주의사항</h4>
             <ul class="mbti_caution">
-                
+
             </ul>
         </section>
         <section class="result_same">
@@ -51,7 +53,7 @@
         </section>
         <ul class="result_other">
             <li class="result_fit">
-                <h4>나와 찰떡궁합은 누구?</h4>
+                <h4>나와 찰떡궁합은?</h4>
                 <div class="fit" data-cls="sameShow">
                     <div class="result_other_img_box">
                         <img class="fit_img" alt="찰떡궁합">
@@ -84,7 +86,7 @@
                     '톡톡프론트'팀이 1일 만에 만든 결과물입니다.</h5>
                 <button class="closeBtn close"><span class="xi-close"></span></button>
                 <a href="https://ozcodingschool.com" target="_blank">오즈코딩스쿨 알아보기</a>
-            </div>  
+            </div>
         </div>
         <div class="shareInfo popupBlack">
             <div class="popup">
@@ -105,7 +107,7 @@
                     <img class="fit_img" alt="찰떡궁합">
                 </div>
                 <h3 class="fit_sub_title">
-            
+
                 </h3>
                 <h4 class="result_tendency">투자 성향</h4>
                 <ul class="fit_mbti_tendency">
@@ -113,7 +115,7 @@
                 </ul>
                 <h4 class="result_caution">주의사항</h4>
                 <ul class="fit_mbti_caution">
-                    
+
                 </ul>
                 <button class="closeBtn"><span class="xi-close"></span></button>
             </div>
@@ -125,7 +127,7 @@
                     <img class="opp_img" alt="">
                 </div>
                 <h3 class="opp_sub_title">
-            
+
                 </h3>
                 <h4 class="result_tendency">투자 성향</h4>
                 <ul class="opp_mbti_tendency">
@@ -133,7 +135,7 @@
                 </ul>
                 <h4 class="result_caution">주의사항</h4>
                 <ul class="opp_mbti_caution">
-                    
+
                 </ul>
                 <button class="closeBtn"><span class="xi-close"></span></button>
             </div>
@@ -145,29 +147,30 @@
         const popupBlackBox = document.querySelectorAll('.popupBlack');
         const popupWhiteBox = document.querySelectorAll('.popup');
 
-        developBtn.forEach(function(el, idx){
+        developBtn.forEach(function (el, idx) {
             el.addEventListener('click', () => {
                 document.body.classList.add(el.dataset.cls);
             });
         });
-        
-        closeBtn.forEach(function(el, idx){
+
+        closeBtn.forEach(function (el, idx) {
             el.addEventListener('click', () => {
-                document.body.classList = '';    
+                document.body.classList = '';
             });
         });
-        
-        popupWhiteBox.forEach(function(el, idx){
-            el.addEventListener('click', function(event){
-                event.stopPropagation();               
-            });            
+
+        popupWhiteBox.forEach(function (el, idx) {
+            el.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
         });
-        popupBlackBox.forEach(function(el, idx){
+        popupBlackBox.forEach(function (el, idx) {
             el.addEventListener('click', () => {
-                document.body.classList = '';    
+                document.body.classList = '';
             });
         })
     </script>
     <script src="result.js"></script>
 </body>
+
 </html>

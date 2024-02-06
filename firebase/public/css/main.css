@@ -318,7 +318,25 @@ html{
 } */
 
 /* 터치 가능한 기종 */
-body[data-touchable='true'] {
+/* body[data-touchable='true'] {
+    .answer_list>li:active label,
+    .answer_list>li input:checked+label {
+        background-color: #000;
+        color: #fff;
+    }
+} */
+
+/* 터치 불가능한 기종 */
+/* body:not([data-touchable='true']) {
+    .answer_list>li:hover label,
+    .answer_list>li input:checked+label {
+        background-color: #000;
+        color: #fff;
+    }
+} */
+
+@media (hover: none) and (pointer: coarse){
+    /* 터치가능한 디바이스(스마트폰, 터치스크린)*/
     .answer_list>li:active label,
     .answer_list>li input:checked+label {
         background-color: #000;
@@ -326,8 +344,8 @@ body[data-touchable='true'] {
     }
 }
 
-/* 터치 불가능한 기종 */
-body:not([data-touchable='true']) {
+@media (pointer: fine) and (hover: hover){
+    /* hover 가능(마우스, 터치패드) */
     .answer_list>li:hover label,
     .answer_list>li input:checked+label {
         background-color: #000;
@@ -658,6 +676,9 @@ body.sameShow .sameType{
     body {
         width: 92%;
         margin: 0 auto;
+    }
+    .main_text_box>h1{
+        font-size: 2.5rem;
     }
     .developInfo > div,
     .shareInfo > div,
