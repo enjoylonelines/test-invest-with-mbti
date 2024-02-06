@@ -65,7 +65,7 @@ answerList.forEach((radio) => {
             showNextQuestion();
         }
     });
-});
+})
 
 // 뒤로가기 버튼 눌렀을 때 이전 질문, 문항, 프로그레스바 업데이트
 backButton.addEventListener('click', function () {
@@ -110,7 +110,7 @@ function showNextQuestion() {
     answerList[1].value = answerArray[pageCount - 1][3];
 
     showProgressIcon();
-    checkedRadio();
+    checkedNextRadio(); // 2.6 호범
 }
 
 // 로컬 저장소에 저장된 데이터를 가져와 체크했었던 라디오 버튼 체크
@@ -122,6 +122,10 @@ function checkedRadio() {
             radio.checked = true;
         }
     }));
+}
+
+function checkedNextRadio() { // 2.6 호범
+    answerList.forEach(radio => radio.checked = false);
 }
 
 // 프로그레스바 위에 아이콘
