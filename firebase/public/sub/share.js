@@ -8,21 +8,20 @@ function share_sendSns(sns) {
         else if(sns == 'kakaotalk'){
              // 사용할 앱의 JavaScript 키 설정
             Kakao.init('f9122508d484bc7362c5b24b818c716d');
-            
-            // 카카오링크 버튼 생성
-            Kakao.Link.createDefaultButton({
-                container: '.btnKakao', 
+
+            Kakao.Link.sendDefault({
                 objectType: 'feed',
                 content: {
-                title: "투자 성향 테스트", 
-                description: "재미로 보는 투자 성향 테스트", 
-                imageUrl: thisUrl, // 콘텐츠 URL
-                link: {
+                  title: '투자 성향 테스트',
+                  description: '재미로 보는 투자 성향 테스트',
+                  imageUrl: '../img/meta_img.jpg',
+                  link: {
                     mobileWebUrl: thisUrl,
-                    webUrl: thisUrl
-                }
-                }
-            });
+                    webUrl: thisUrl,
+                  },
+                },
+                installTalk: true,
+             });
         }
         else if( sns == 'twitter' ) {
             let url = "http://twitter.com/share?url="+encodeURIComponent(thisUrl)+"&text="+encodeURIComponent(snsTitle);
