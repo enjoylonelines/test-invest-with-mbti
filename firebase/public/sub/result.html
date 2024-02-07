@@ -92,10 +92,10 @@
             <div class="popup">
                 <h3>공유하기</h3>
                 <ul class="shareList">
-                    <li><a href="#"><span class="xi-facebook"></span></a></li>
-                    <li><a href="#"><span class="xi-kakaotalk"></span></a></li>
-                    <li><a href="#"><span class="xi-twitter"></span></a></li>
-                    <li><a href="#"><span class="xi-share-alt"></span></a></li>
+                    <li onclick="result_sendSns('facebook');return false;"><a href="#"><span class="xi-facebook"></span></a></li>
+                    <li class="btnKakao" onclick="result_sendSns('kakaotalk');return false;"><a href="#"><span class="xi-kakaotalk"></span></a></li>
+                    <li onclick="result_sendSns('twitter');return false;"><a href="#"><span class="xi-twitter"></span></a></li>
+                    <li onclick="result_sendSns('copyUrl');return false;"><a href="#"><span class="xi-share-alt"></span></a></li>
                 </ul>
                 <button class="closeBtn"><span class="xi-close"></span></button>
             </div>
@@ -141,6 +141,7 @@
             </div>
         </div>
     </main>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script>
         const developBtn = document.querySelectorAll('#result [data-cls]');
         const closeBtn = document.querySelectorAll('.closeBtn');
@@ -168,8 +169,10 @@
             el.addEventListener('click', () => {
                 document.body.classList = '';
             });
-        })
+        });
+
     </script>
+    <script src="share.js"></script>
     <script src="result.js"></script>
 </body>
 

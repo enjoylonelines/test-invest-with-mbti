@@ -37,10 +37,10 @@
             <p id="count_box">지금까지 <span id="count_people"></span>명이 참여 했어요.</p>
         </div>
         <ul class="icon_list_box">
-            <li><a href="#"><span class="xi-facebook"></span></a></li>
-            <li><a href="#"><span class="xi-kakaotalk"></span></a></li>
-            <li><a href="#"><span class="xi-twitter"></span></a></li>
-            <li><a href="#"><span class="xi-share-alt"></span></a></li>
+            <li onclick="result_sendSns('facebook');return false;"><a href="#"><span class="xi-facebook"></span></a></li>
+            <li class="btnKakao" onclick="result_sendSns('kakaotalk');return false;"><a href="#"><span class="xi-kakaotalk"></span></a></li>
+            <li onclick="result_sendSns('twitter');return false;"><a href="#"><span class="xi-twitter"></span></a></li>
+            <li onclick="result_sendSns('copyUrl');return false;"><a href="#"><span class="xi-share-alt"></span></a></li>
         </ul>
     </main>
 
@@ -52,5 +52,6 @@
         })
     </script>
     <script src="index.js"></script>
+    <script src="./sub/share.js"></script>
 </body>
 </html>
