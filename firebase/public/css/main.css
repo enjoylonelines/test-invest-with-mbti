@@ -86,11 +86,12 @@ html{
 .icon_list_box li{
     width: 25%;
 }
-.icon_list_box li a{
+/* .icon_list_box li a{
     display: block;
-}
-.icon_list_box li a span{
+} */
+.icon_list_box li span{
     font-size: 2.5rem;
+    cursor: pointer;
 }
 
 /**question*******************************************************************/
