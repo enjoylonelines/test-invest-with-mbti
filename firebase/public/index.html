@@ -37,10 +37,10 @@
             <p id="count_box">지금까지 <span id="count_people"></span>명이 참여 했어요.</p>
         </div>
         <ul class="icon_list_box">
-            <li onclick="result_sendSns('facebook');return false;"><a href="#"><span class="xi-facebook"></span></a></li>
-            <li class="btnKakao" onclick="result_sendSns('kakaotalk');return false;"><a href="#"><span class="xi-kakaotalk"></span></a></li>
-            <li onclick="result_sendSns('twitter');return false;"><a href="#"><span class="xi-twitter"></span></a></li>
-            <li onclick="result_sendSns('copyUrl');return false;"><a href="#"><span class="xi-share-alt"></span></a></li>
+            <li onclick="share_sendSns('facebook');return false;"><span class="xi-facebook"></span></li>
+            <li class="btnKakao" onclick="share_sendSns('kakaotalk');return false;"><span class="xi-kakaotalk"></span></li>
+            <li onclick="share_sendSns('twitter');return false;"><span class="xi-twitter"></span></li>
+            <li onclick="share_sendSns('copyUrl');return false;"><span class="xi-share-alt"></span></li>
         </ul>
     </main>
 
@@ -51,6 +51,7 @@
             location.href = link;
         })
     </script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="index.js"></script>
     <script src="./sub/share.js"></script>
 </body>
