@@ -110,7 +110,6 @@ function showNextQuestion() {
     answerList[1].value = answerArray[pageCount - 1][3];
 
     showProgressIcon();
-    //checkedNextRadio(); // 2.6 호범
     checkedRadio();
 }
 
@@ -129,10 +128,6 @@ function checkedRadio() {
             radio.checked = false;
         });
     }
-}
-
-function checkedNextRadio() { // 2.6 호범
-    answerList.forEach(radio => radio.checked = false);
 }
 
 // 프로그레스바 위에 아이콘
