@@ -14,10 +14,10 @@ function share_sendSns(sns) {
                 content: {
                   title: '투자 성향 테스트',
                   description: '재미로 보는 투자 성향 테스트',
-                  imageUrl: 'https://firebasestorage.googleapis.com/v0/b/project-flip-the-card.appspot.com/o/images%2Fmeta_img.jpg?alt=media&token=6b044c99-ac2b-478b-b7de-0e75a41e02b7',
+                  imageUrl: 'https://firebasestorage.googleapis.com/v0/b/project-flip-the-card.appspot.com/o/images%2Fmeta_img.jpg?alt=media&token=cd523934-95fd-420b-9d2f-098ef8bd0912',
                   link: {
-                    mobileWebUrl: thisUrl,
-                    webUrl: thisUrl,
+                    mobileWebUrl: 'https://project-flip-the-card.web.app',
+                    webUrl: 'https://project-flip-the-card.web.app',
                   },
                 },
                 installTalk: true,
