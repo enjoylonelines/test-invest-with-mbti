@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
 </head>
 <body>
     <main class="main">
@@ -31,7 +34,7 @@
         </section>
         <button id="startBtn" type="button" onclick="onClickStartBtn()">START</button>
         <div>
-            <p id="count_box">지금까지 <span id="count_people">00</span>명이 참여 했어요.</p>
+            <p id="count_box">지금까지 <span id="count_people"></span>명이 참여 했어요.</p>
         </div>
         <ul class="icon_list_box">
             <li><a href="#"><span class="xi-facebook"></span></a></li>
@@ -48,5 +51,6 @@
             location.href = link;
         })
     </script>
+    <script src="index.js"></script>
 </body>
 </html>
