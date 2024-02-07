@@ -1,4 +1,4 @@
-function share_sendSns(sns, e) {
+function share_sendSns(sns) {
     let thisUrl = document.URL;
     let snsTitle = "재미로 보는 투자 성향 테스트";
         if( sns == 'facebook' ) {

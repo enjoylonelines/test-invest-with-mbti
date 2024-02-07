@@ -625,12 +625,13 @@ body.sameShow .sameType{
     width: 25%;
     margin-top: 10px;
 }
-.shareList li a{
+/* .shareList li a{
     display: block;
-}
-.shareList li a span{
+} */
+.shareList li span{
     display: block;
     font-size: 2.5rem;
+    cursor: pointer;
 }
 .oppositionType .result_title,
 .sameType .result_title{
