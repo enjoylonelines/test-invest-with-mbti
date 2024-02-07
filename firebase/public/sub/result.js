@@ -1,6 +1,15 @@
 const resultMBTI = localStorage.getItem('mbti'); //결과 mbti 문자열
 let fitMBTI, oppMBTI;
 const INCREMENT_VALUE = 1;
+function setUrl(resultMBTI){
+    const curUrl = window.location.href;
+    if(resultMBTI && curUrl.indexOf('?') === -1){
+        // URL에 쿼리 문자열 추가하기
+        const newUrl = curUrl + `?result=${resultMBTI}`;
+        // 페이지 새로고침 또는 다른 동작을 수행하여 새 URL로 이동
+        window.location.href = newUrl;
+    }
+}
 function setMBTI(resultMBTI){
     switch(resultMBTI){
         case 'ENTP':
@@ -199,6 +208,7 @@ async function downloadRatio(){
         console.error('비율 데이터 다운로드 실패: ', error);
     });    
 }
+setUrl(resultMBTI);
 setMBTI(resultMBTI);
 downloadData();
 downloadFitData();
