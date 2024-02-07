@@ -1,3 +1,5 @@
+Kakao.init('f9122508d484bc7362c5b24b818c716d');
+
 function share_sendSns(sns) {
     let thisUrl = document.URL;
     let snsTitle = "재미로 보는 투자 성향 테스트";
@@ -6,9 +8,7 @@ function share_sendSns(sns) {
             window.open(url, "", "width=486, height=286");
         }
         else if(sns == 'kakaotalk'){
-             // 사용할 앱의 JavaScript 키 설정
-            Kakao.init('f9122508d484bc7362c5b24b818c716d');
-
+            
             Kakao.Link.sendDefault({
                 objectType: 'feed',
                 content: {
