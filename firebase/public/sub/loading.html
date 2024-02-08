@@ -33,14 +33,14 @@
         loadResult();
 
         mbtiResultArr = mbtiResultArr.join('');
-        E = mbtiResultArr.match(/E/g)?.length;
-        I = mbtiResultArr.match(/I/g)?.length;
-        S = mbtiResultArr.match(/S/g)?.length;
-        N = mbtiResultArr.match(/N/g)?.length;
-        T = mbtiResultArr.match(/T/g)?.length;
-        F = mbtiResultArr.match(/F/g)?.length;
-        P = mbtiResultArr.match(/P/g)?.length;
-        J = mbtiResultArr.match(/J/g)?.length;
+        E = mbtiResultArr.match(/E/g)?.length ? mbtiResultArr.match(/E/g)?.length : 0;
+        I = mbtiResultArr.match(/I/g)?.length ? mbtiResultArr.match(/I/g)?.length : 0;
+        S = mbtiResultArr.match(/S/g)?.length ? mbtiResultArr.match(/S/g)?.length : 0;
+        N = mbtiResultArr.match(/N/g)?.length ? mbtiResultArr.match(/N/g)?.length : 0;
+        T = mbtiResultArr.match(/T/g)?.length ? mbtiResultArr.match(/T/g)?.length : 0;
+        F = mbtiResultArr.match(/F/g)?.length ? mbtiResultArr.match(/F/g)?.length : 0;
+        P = mbtiResultArr.match(/P/g)?.length ? mbtiResultArr.match(/P/g)?.length : 0;
+        J = mbtiResultArr.match(/J/g)?.length ? mbtiResultArr.match(/J/g)?.length : 0;
 
         mbtiResult += E > I ? 'E' : 'I';
         mbtiResult += S > N ? 'S' : 'N';
